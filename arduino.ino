@@ -50,9 +50,9 @@ int getTemp()
   float sensorR = (( 5.0 * 10000.0 )/ sensorV ) - 10000.0;
 
   float kT = 1.0 / ((1.0 / (273.15 + 25.0)) + (1.0 / 4200.0) * log (sensorR / 10000.0));
-
+ 
   float cT = kT-273.15;
-
+ 
   if(cT >= 25)
     return LEVEL_DANGER;
   else if(cT >= 60)
@@ -70,11 +70,12 @@ int getWater()
   else if(value <= 550)
     return LEVEL_INFO;
   else
-    return LEVEL_WARN;
+    return LEVEL_DANGER;
 }
 
 int getSound()
 {
+  Serial.println(analogRead(PIN_SOUND));
   return LEVEL_NONE;
 }
 
@@ -123,14 +124,14 @@ void loop() {
         send_all();
         break;
     }
-  }
+  }  
 
   if(getTemp() >= LEVEL_INFO)
     send_noti(TYPE_TEMP, getTemp());
   else if(getSound() >= LEVEL_WARN)
-    send_noti(TYPE_WATER, getSound());
-  else if(getWater() >= LEVEL_WARN)
     send_noti(TYPE_SOUND, getSound());
+  else if(getWater() >= LEVEL_WARN)
+    send_noti(TYPE_WATER, getWater());
 
   LOG("Loop End");
   delay(1000);
