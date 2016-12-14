@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/waps12b/AndroidStudioProjects/Helper/Application/build/intermediates/res/merged/debug/menu/gatt_services.xml",
+        "source": "/Users/waps12b/AndroidStudioProjects/Helper/Application/src/main/res/menu/gatt_services.xml"
+    },
+    {
+        "merged": "/Users/waps12b/AndroidStudioProjects/Helper/Application/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/waps12b/AndroidStudioProjects/Helper/Application/src/main/res/menu/main.xml"
+    }
+]
